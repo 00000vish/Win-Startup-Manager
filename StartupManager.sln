@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartupManager", "StartupManager\StartupManager.csproj", "{0BEE1752-A4F2-412D-9F7A-C639AF7DD00D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartupManager_Launcher", "StartupManager_Launcher\StartupManager_Launcher.csproj", "{F46AE59C-6D8F-4B65-B463-3CAFDEE7B9CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0BEE1752-A4F2-412D-9F7A-C639AF7DD00D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BEE1752-A4F2-412D-9F7A-C639AF7DD00D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BEE1752-A4F2-412D-9F7A-C639AF7DD00D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BEE1752-A4F2-412D-9F7A-C639AF7DD00D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F46AE59C-6D8F-4B65-B463-3CAFDEE7B9CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F46AE59C-6D8F-4B65-B463-3CAFDEE7B9CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F46AE59C-6D8F-4B65-B463-3CAFDEE7B9CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F46AE59C-6D8F-4B65-B463-3CAFDEE7B9CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC51036B-EBE8-4A82-BBBA-E215564359A6}
+	EndGlobalSection
+EndGlobal

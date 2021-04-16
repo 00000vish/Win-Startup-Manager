@@ -57,6 +57,16 @@ namespace StartupManager
             return (App)collection[index];
         }
 
+        public static void moveUp(int index)
+        {
+            if(index-1 > -1)
+            {
+                App temp = (App)collection[index - 1];
+                collection[index - 1] = collection[index];
+                collection[index] = temp;
+            }
+        }
+
         public static ArrayList getApps()
         {
             return collection;

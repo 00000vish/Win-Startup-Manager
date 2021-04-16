@@ -23,6 +23,12 @@ namespace StartupManager
 
         private void initVaribales()
         {
+            if (!Properties.Settings.Default.logging)
+            {
+                Properties.Settings.Default.logging = false;
+                loggingToolStripMenuItem.Text = "Logging [Disabled]";
+                button3.Visible = false;
+            }
             versionToolStripMenuItem.Text = "Version " + Application.ProductVersion;
             autoExit = Properties.Settings.Default.autoExit;
         }
@@ -69,6 +75,7 @@ namespace StartupManager
             {
                 ListViewItem temp = new ListViewItem(item.enabled.ToString());
                 temp.SubItems.Add(item.name);
+                temp.SubItems.Add(item.hiddenStart.ToString());
                 temp.SubItems.Add(item.usb.ToString());
                 temp.SubItems.Add(item.cmd.enabled.ToString() + " | \"" + item.cmd.command + "\"");
                 listView1.Items.Add(temp);
@@ -299,6 +306,15 @@ namespace StartupManager
             Properties.Settings.Default.logging = true;
             loggingToolStripMenuItem.Text = "Logging [Enabled]";
             button3.Visible = true;
+        }
+
+        private void moveUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                Applications.moveUp(listView1.SelectedItems[0].Index);
+                updateAppList();
+            }
         }
     }
 }

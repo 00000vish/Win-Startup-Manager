@@ -56,6 +56,7 @@ namespace StartupManager
             checkBox6.Checked = currApp.hiddenStart;
             textBox1.Text = currApp.startDelay.timeValString;
             textBox3.Text = currApp.closeDelay.timeValString;
+            checkBox6.Checked = currApp.hiddenStart;
             Update();
             Refresh();
             guiComplete = true;
@@ -204,6 +205,18 @@ namespace StartupManager
         private void Form2_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox6_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox6.Checked)
+            {
+                currApp.hiddenStart = true;
+            }
+            else
+            {
+                currApp.hiddenStart = false;
+            }
         }
     }
 }

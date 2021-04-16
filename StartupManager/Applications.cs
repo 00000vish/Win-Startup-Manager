@@ -48,6 +48,7 @@ namespace StartupManager
 
         public static void add(App item)
         {
+            Logger.writeLog("Added:  " + item.name + " # " +item.path );
             collection.Add(item);
         }
 
@@ -63,6 +64,7 @@ namespace StartupManager
 
         public static void writeToFile()
         {
+            Logger.writeLog("Writing to file");
             collection.TrimToSize();
             Data temp = new Data() { datas = new App[collection.Count]};
             for (int x =0;x< temp.datas.Length; x++)
@@ -75,6 +77,7 @@ namespace StartupManager
 
         public static void removeApp(int index)
         {
+            Logger.writeLog("Removed to app");
             collection.RemoveAt(index);
         }
     }

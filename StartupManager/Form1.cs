@@ -12,7 +12,7 @@ namespace StartupManager
 {
     public partial class Form1 : Form
     {
-        private bool logger = false;
+        
         private bool autoExit = false;
 
         public Form1()
@@ -24,7 +24,6 @@ namespace StartupManager
         private void initVaribales()
         {
             versionToolStripMenuItem.Text = "Version " + Application.ProductVersion;
-            logger = Properties.Settings.Default.logging;
             autoExit = Properties.Settings.Default.autoExit;
         }
 
@@ -47,18 +46,19 @@ namespace StartupManager
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Applications.writeToFile();
-            Properties.Settings.Default.logging = logger;
             Properties.Settings.Default.autoExit = autoExit;
             Properties.Settings.Default.Save();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Logger.writeLog("Closing...!");
             Application.Exit();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Logger.writeLog("updating...!");
             updateAppList();
         }
 
@@ -235,6 +235,7 @@ namespace StartupManager
             }
             else
             {
+                Logger.writeLog("File does not exist!");
                 MessageBox.Show("File does not exist!");
             }
         }
@@ -246,7 +247,58 @@ namespace StartupManager
 
         private void button3_Click(object sender, EventArgs e)
         {
+            //log
+            Logger.writeLog("Closing...!");
+        }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (button4.Text.Equals("Enable"))
+            {
+                if (listView1.SelectedItems.Count > 0)
+                {
+                    Applications.getApp(listView1.SelectedItems[0].Index).enabled = true ;
+                    updateAppList();
+                }
+            }
+            else
+            {
+                if (listView1.SelectedItems.Count > 0)
+                {
+
+                    Applications.getApp(listView1.SelectedItems[0].Index).enabled = false;
+                    updateAppList();
+                }
+            }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                if (Applications.getApp(listView1.SelectedItems[0].Index).enabled)
+                {
+                    button4.Text = "Disable";
+                }
+                else
+                {
+                    button4.Text = "Enable";
+                }
+            }
+        }
+
+        private void disableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.logging = false;
+            loggingToolStripMenuItem.Text = "Logging [Disabled]";
+            button3.Visible = false;
+        }
+
+        private void enableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.logging = true;
+            loggingToolStripMenuItem.Text = "Logging [Enabled]";
+            button3.Visible = true;
         }
     }
 }

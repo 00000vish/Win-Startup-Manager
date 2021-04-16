@@ -8,10 +8,10 @@ namespace StartupManager
 {
     static class Logger
     {
-        static string path = "";
-        static void writeLog(string path)
+        public static void writeLog(string data)
         {
-            System.IO.File.AppendAllLines("test.txt", new string[] {path});
+            if(Properties.Settings.Default.logging)
+                System.IO.File.WriteAllText("log.txt", data);
         }
     }
 }

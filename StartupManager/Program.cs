@@ -31,7 +31,7 @@ namespace StartupManager
                 {
                     string KeyName = "Startup Manager";
                     string KeyValue = AppDomain.CurrentDomain.BaseDirectory + "StartupManager_Launcher.exe";
-                    //regKey.SetValue(KeyName, KeyValue, Microsoft.Win32.RegistryValueKind.String);
+                    regKey.SetValue(KeyName, KeyValue, Microsoft.Win32.RegistryValueKind.String);
                 }
                 catch (Exception) { }
             }

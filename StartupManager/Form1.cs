@@ -238,7 +238,9 @@ namespace StartupManager
         {
             if (System.IO.File.Exists(Applications.getApp(listView1.SelectedItems[0].Index).path.ToString()))
             {
-                System.Diagnostics.Process.Start(Applications.getApp(listView1.SelectedItems[0].Index).path.ToString());
+                string execPath = Applications.getApp(listView1.SelectedItems[0].Index).path.ToString();
+                string parentFolder = execPath.Replace(execPath.Split('\\')[execPath.Split('\\').Length-1],"");
+                System.Diagnostics.Process.Start(parentFolder);
             }
             else
             {
@@ -254,8 +256,7 @@ namespace StartupManager
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //log
-            Logger.writeLog("Closing...!");
+            Logger.openLogFile();
         }
 
         private void button4_Click(object sender, EventArgs e)

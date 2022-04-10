@@ -34,7 +34,6 @@ namespace StartupManager_Launcher
                     processApp(item);
                 }
             }
-            //Environment.Exit(0);
         }
 
         static void processApp(App item)
